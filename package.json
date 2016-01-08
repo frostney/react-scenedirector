@@ -1,0 +1,24 @@
+{
+  "name": "react-scenedirector",
+  "version": "1.0.0",
+  "description": "Scene management in React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frostney/react-scenedirector.git"
+  },
+  "keywords": [
+    "react",
+    "scene",
+    "scenedirector"
+  ],
+  "author": "Johannes Stein",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frostney/react-scenedirector/issues"
+  },
+  "homepage": "https://github.com/frostney/react-scenedirector#readme"
+}
