@@ -5,7 +5,7 @@ let sceneIndex = 0;
 class Scene extends Component {
   static defaultProps = {
     name: `scene${sceneIndex++}`
-  }
+  };
 
   render() {
     return (
