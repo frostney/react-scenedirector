@@ -1,10 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 let sceneIndex = 0;
 
 class Scene extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   static defaultProps = {
-    name: `scene${sceneIndex++}`
+    name: `scene${sceneIndex++}`,
+    initialScene: '',
   };
 
   render() {

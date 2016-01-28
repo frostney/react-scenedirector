@@ -1,6 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class SceneDirector extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    children: PropTypes.node,
+  };
 
   render() {
     return (
