@@ -2,8 +2,10 @@
   "name": "react-scenedirector",
   "version": "1.0.0",
   "description": "Scene management in React",
-  "main": "index.js",
+  "main": "dist/react-scenedirector.js",
   "scripts": {
+    "build": "rollup-babel-lib-bundler --module-name SceneDirector src/index.js",
+    "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,6 +15,7 @@
   "keywords": [
     "react",
     "scene",
+    "screen",
     "scenedirector"
   ],
   "author": "Johannes Stein",
@@ -20,5 +23,15 @@
   "bugs": {
     "url": "https://github.com/frostney/react-scenedirector/issues"
   },
-  "homepage": "https://github.com/frostney/react-scenedirector#readme"
+  "homepage": "https://github.com/frostney/react-scenedirector#readme",
+  "devDependencies": {
+    "babel-eslint": "^4.1.6",
+    "babel-preset-es2015-loose-rollup": "^7.0.0",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-1": "^6.3.13",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^4.0.0",
+    "eslint-plugin-react": "^3.16.1",
+    "rollup-babel-lib-bundler": "^1.0.0"
+  }
 }
