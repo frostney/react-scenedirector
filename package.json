@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Scene management in React",
   "main": "dist/react-scenedirector.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
     "build": "rollup-babel-lib-bundler --module-name SceneDirector src/index.js",
     "lint": "eslint src",
