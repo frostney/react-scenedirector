@@ -6,19 +6,15 @@ class Scene extends Component {
   static propTypes = {
     name: PropTypes.string,
     children: PropTypes.node,
-  }
+    director: PropTypes.object,
+  };
 
   static defaultProps = {
     name: `scene${sceneIndex++}`,
-    initialScene: '',
   };
 
   render() {
-    return (
-      <div className={`scene scene-${this.props.name}`}>
-        {this.props.children}
-      </div>
-    );
+    return React.createElement(this.props.children, this.props);
   }
 }
 
