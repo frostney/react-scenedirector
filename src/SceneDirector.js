@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 
-import Scene from './Scene';
-
 class SceneDirector extends Component {
   static propTypes = {
     name: PropTypes.string,
-    children: PropTypes.node,
+    scenes: PropTypes.object,
     initialScene: PropTypes.string,
   };
 
-  constructor() {
+  constructor(props) {
+    super(props);
+
     this.state = {
       currentScene: this.props.initialScene,
     };
@@ -22,17 +22,13 @@ class SceneDirector extends Component {
   };
 
   render() {
-    React.Children.forEach(this.props.children, child => {
-      if (child.type === Scene) {
+    const scene = this.state.scenes[this.state.currentScene];
 
-      }
-    });
-
-    if (!this.state.currentScene) {
-
+    if (!scene) {
+      return null;
     }
 
-    return this.state.mountedScene;
+    React.createElement(scene, { switchToScene: this.switchToScene });
   }
 }
 
