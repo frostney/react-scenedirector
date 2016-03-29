@@ -1,6 +1,9 @@
 # react-scenedirector
 Managing scenes/screens in React projects
 
+[![Build Status](https://travis-ci.org/frostney/react-scenedirector.svg?branch=master)](https://travis-ci.org/frostney/react-scenedirector) [![Dependency Status](https://david-dm.org/frostney/react-scenedirector.svg)](https://david-dm.org/frostney/react-scenedirector) [![devDependency Status](https://david-dm.org/frostney/react-scenedirector/dev-status.svg)](https://david-dm.org/frostney/react-scenedirector#info=devDependencies) [![codecov.io](https://codecov.io/github/frostney/react-scenedirector/coverage.svg?branch=master)](https://codecov.io/github/frostney/react-scenedirector?branch=master)
+
+
 Modeled after [https://github.com/freezedev/lyria](freezedev/lyria).
 The API is in the "figuring things out" mode.
 
