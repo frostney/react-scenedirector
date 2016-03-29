@@ -2,10 +2,13 @@ import React, { Component, PropTypes } from 'react';
 
 class SceneDirector extends Component {
   static propTypes = {
-    name: PropTypes.string,
     scenes: PropTypes.object,
     initialScene: PropTypes.string,
   };
+
+  static defaultProps = {
+    scenes: {},
+  }
 
   constructor(props) {
     super(props);
@@ -22,6 +25,14 @@ class SceneDirector extends Component {
   };
 
   render() {
+    if (!this.state.scenes || Object.keys(this.state.scenes) === 0) {
+      return null;
+    }
+
+    if (!this.state.currentScene) {
+      return this.state.scenes[Object.keys(this.state.scenes)[0]];
+    }
+
     const scene = this.state.scenes[this.state.currentScene];
 
     if (!scene) {
