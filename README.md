@@ -43,5 +43,12 @@ const App = () => (
 ReactDOM.render(App, document.getElementBy('content'));
 ```
 
+## Props
+### `scenes`
+Requires an object in the from `{ [String]: ReactNode }`.
+
+### `initialScene`
+The name of the initial scene that will be shown
+
 #### Will this be available for React Native?
 Yes, at some point... maybe. Not right now. But if you a pull request for that, I'd be eternally grateful.
