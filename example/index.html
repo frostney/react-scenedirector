@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scene Director example</title>
+	<script src="https://npmcdn.com/babel-core@5.8.35/browser.min.js"></script>
+	<script src="https://npmcdn.com/react@^0.14/dist/react.js"></script>
+	<script src="https://npmcdn.com/react-dom@^0.14/dist/react-dom.js"></script>
+  <script src="../dist/react-scenedirector.umd.js"></script>
+</head>
+<body>
+	<div id="container"></div>
+	<script type="text/babel">
+    var Scene1 = React.createClass({
+      onNextScene: function() {
+        this.props.switchToScene('Scene2');
+      },
+
+      render: function() {
+        return (
+          <div>
+            <button onClick={this.onNextScene}>Switch to next scene</button>
+            <div>Hello, this is scene 1</div>
+          </div>
+        );
+      }
+    });
+
+    var Scene2 = React.createClass({
+      onNextScene: function() {
+        this.props.switchToScene('Scene1');
+      },
+
+      render: function() {
+        return (
+          <div>
+            <button onClick={this.onPrevScene}>Switch to previous scene</button>
+            <div>Hello, this is scene 2</div>
+          </div>
+        );
+      }
+    });
+
+    var scenes = {
+      Scene1: Scene1,
+      Scene2: Scene2
+    };
+
+  	var App = React.createClass({
+			render: function() {
+				return (
+					<SceneDirector scenes={scenes} />
+				)
+			}
+		});
+
+		ReactDOM.render(<App />, document.getElementById('container'));
+    </script>
+</body>
+</html>
