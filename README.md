@@ -45,10 +45,18 @@ ReactDOM.render(App, document.getElementBy('content'));
 
 ## Props
 ### `scenes`
+#### Type: `Object`
 Requires an object in the from `{ [String]: ReactNode }`.
 
 ### `initialScene`
+#### Type: `String`
 The name of the initial scene that will be shown
+
+Switch through scenes is possible either with `props.switchToScene` or `this.context.switchToScene`. Switching between scenes using `props` will be deprecated in the future.
+
+### `onSwitchScene`
+#### Type: `Function`
+This function will be called once we switch to a scene. It will also be called for the initial scene.
 
 #### Will this be available for React Native?
 Yes, at some point... maybe. Not right now. But if you a pull request for that, I'd be eternally grateful.
