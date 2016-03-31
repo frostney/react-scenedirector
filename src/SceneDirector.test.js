@@ -68,7 +68,7 @@ test.cb('switch to different scene (props)', t => {
     };
 
     componentDidMount() {
-      this.props.switchToScene('scene2');
+      this.props.switchToScene('Scene2');
     }
 
     render() {
@@ -115,7 +115,7 @@ test.cb('switch to different scene (context)', t => {
     };
 
     componentDidMount() {
-      this.context.switchToScene('scene2');
+      this.context.switchToScene('Scene2');
     }
 
     render() {
