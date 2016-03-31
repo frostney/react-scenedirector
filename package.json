@@ -9,8 +9,8 @@
     "prepublish": "in-publish && npm run build || not-in-publish",
     "lint": "eslint src",
     "precommit": "npm run lint",
-    "test": "ava --require './ava-jsdom-setup' --verbose 'src/**/*.test.js'",
-    "coverage": "nyc npm test"
+    "test": "ava --verbose 'src/**/*.test.js'",
+    "coverage": "node --require babel-register ./node_modules/.bin/nyc --all --reporter lcov --reporter html npm test"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,16 @@
     "src"
   ],
   "ava": {
-    "babel": "inherit"
+    "babel": "inherit",
+    "require": "./ava-jsdom-setup"
+  },
+  "nyc": {
+    "exclude": [
+      "coverage",
+      "dist",
+      "**/*.test.js",
+      "ava-jsdom-setup.js"
+    ]
   },
   "rollupBabelLibBundler": {
     "moduleName": "SceneDirector",
