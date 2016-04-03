@@ -39,8 +39,7 @@
       ],
       "plugins": [
         "transform-class-properties"
-      ],
-      "externalHelpers": false
+      ]
     }
   },
   "author": "Johannes Stein",
