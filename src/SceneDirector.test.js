@@ -33,6 +33,16 @@ test('shows initial scene', t => {
   t.is(wrapperText, 'Scene');
 });
 
+test('does not allow invalid configurations', t => {
+  const scenes = {
+    scene: null,
+  };
+
+  const wrapper = render(<SceneDirector scenes={scenes} initialScene="scene2" />);
+
+  t.ok(wrapper);
+});
+
 test('initial scene is implicit', t => {
   const scenes = {
     scene: () => (
@@ -98,6 +108,39 @@ test.cb('switch to different scene (props)', t => {
   />);
 });
 
+test.cb('switch to invalid scene (props)', t => {
+  class Scene1 extends Component {
+    static propTypes = {
+      switchToScene: PropTypes.func,
+    };
+
+    componentDidMount() {
+      this.props.switchToScene('Scene3');
+    }
+
+    render() {
+      return <div>Scene 1</div>;
+    }
+  }
+
+  const scenes = {
+    Scene1,
+  };
+
+  sinon.spy(Scene1.prototype, 'componentDidMount');
+
+  mount(<SceneDirector scenes={scenes} onSwitchScene={scene => {
+    if (scene === 'Scene1') {
+      t.is(Scene1.prototype.componentDidMount.calledOnce, true);
+    }
+
+    if (scene === 'Scene3') {
+      t.end();
+    }
+  } }
+  />);
+});
+
 test.cb('switch to different scene (context)', t => {
   class Scene2 extends Component {
     componentDidMount() {
@@ -139,6 +182,39 @@ test.cb('switch to different scene (context)', t => {
     if (scene === 'Scene2') {
       t.is(Scene2.prototype.componentDidMount.calledOnce, true);
 
+      t.end();
+    }
+  } }
+  />);
+});
+
+test.cb('switch to invalid scene (context)', t => {
+  class Scene1 extends Component {
+    static contextTypes = {
+      switchToScene: PropTypes.func,
+    };
+
+    componentDidMount() {
+      this.context.switchToScene('Scene3');
+    }
+
+    render() {
+      return <div>Scene 1</div>;
+    }
+  }
+
+  const scenes = {
+    Scene1,
+  };
+
+  sinon.spy(Scene1.prototype, 'componentDidMount');
+
+  mount(<SceneDirector scenes={scenes} onSwitchScene={scene => {
+    if (scene === 'Scene1') {
+      t.is(Scene1.prototype.componentDidMount.calledOnce, true);
+    }
+
+    if (scene === 'Scene3') {
       t.end();
     }
   } }
