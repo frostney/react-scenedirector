@@ -30,14 +30,6 @@
     "babel": "inherit",
     "require": "./ava-jsdom-setup"
   },
-  "nyc": {
-    "exclude": [
-      "coverage",
-      "dist",
-      "**/*.test.js",
-      "ava-jsdom-setup.js"
-    ]
-  },
   "rollupBabelLibBundler": {
     "moduleName": "SceneDirector",
     "babel": {
