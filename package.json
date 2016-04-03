@@ -10,7 +10,7 @@
     "lint": "eslint src",
     "precommit": "npm run lint",
     "test": "ava --verbose 'src/**/*.test.js'",
-    "coverage": "node --require babel-register ./node_modules/.bin/nyc --all --reporter lcov --reporter html npm test"
+    "coverage": "nyc --reporter lcov --reporter html ava 'src/**/*.test.js'"
   },
   "repository": {
     "type": "git",
